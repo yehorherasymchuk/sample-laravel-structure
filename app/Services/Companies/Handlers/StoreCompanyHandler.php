@@ -26,6 +26,8 @@ class StoreCompanyHandler
     public function handle(StoreCompanyDTO $dto): void
     {
         $this->companyRepository->store($dto);
+
+
     }
 
 }

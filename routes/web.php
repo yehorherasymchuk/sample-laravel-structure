@@ -31,8 +31,14 @@ Route::get('/sockets/echo', function () {
     return view('sockets.echo');
 })->name('sockets.echo');
 Route::get('/sockets/new', function () {
-    \App\Events\MyEvent::dispatch('New User: ' . \Carbon\Carbon::now()->toString());
-    return response()->json(['ok']);
+    $order = [
+        "total_price" => 10,
+    ];
+
+    //event(new OrderCreated($order));
+    event(new \App\Events\OrderCreated($order));
+//    \App\Events\MyEvent::dispatch('New User: ' . \Carbon\Carbon::now()->toString());
+    return response()->json($order);
 })->name('sockets.new');
 
 require __DIR__.'/auth.php';

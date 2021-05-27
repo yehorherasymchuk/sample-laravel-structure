@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "socket.io": "^4.0.1",
-    "socket.io-client": "^4.0.1",
+    "socket.io-client": "^2.3.0",
     "websocket": "^1.0.34",
     "websockets": "^0.2.0"
   }

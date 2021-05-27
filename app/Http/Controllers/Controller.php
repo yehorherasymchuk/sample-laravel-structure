@@ -10,4 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    const MODELS_PER_PAGE = 25;
+    const MAX_MODELS_PER_PAGE = 100;
+
 }

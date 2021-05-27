@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
 
-    protected array $bindings = [
+    public $bindings = [
         CompanyRepository::class => EloquentCompanyRepository::class,
     ];
 

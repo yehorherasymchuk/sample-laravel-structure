@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Api\Companies\Request;
 
 use App\Services\Companies\DTO\StoreCompanyDTO;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class StoreCompaniesRequest extends FormRequest
 {
@@ -34,7 +35,14 @@ class StoreCompaniesRequest extends FormRequest
 
     public function getDTO(): StoreCompanyDTO
     {
-        return StoreCompanyDTO::fromArray($this->validated());
+        return StoreCompanyDTO::fromArray(array_merge($this->validated(), [
+            'request_id' => $this->generateRequestId(),
+        ]));
+    }
+
+    private function generateRequestId(): string
+    {
+        return Str::uuid()->toString();
     }
 
 }

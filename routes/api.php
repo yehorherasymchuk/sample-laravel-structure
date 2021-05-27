@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/users', function (Request $request) {
     return $request->user();
 });
+
+Route::post('companies', \App\Http\Controllers\Api\Companies\StoreCompaniesController::class);
+
+Route::get('/cities', \App\Http\Controllers\Api\Cities\ListCitiesController::class); // cities list
+Route::get('/cities/{city}', \App\Http\Controllers\Api\Cities\ShowCitiesController::class); // cityInfo
+Route::post('/cities', \App\Http\Controllers\Api\Cities\StoreCitiesController::class); // cityInfo
+Route::put('/cities/{city}', \App\Http\Controllers\Api\Cities\UpdateCitiesController::class); // cityInfo
+Route::delete('/cities/{city}', \App\Http\Controllers\Api\Cities\DeleteCitiesController::class); // cityInfo
+

@@ -16,15 +16,18 @@ class StoreCompanyDTO implements Arrayable
     private int $city_id;
     private string $name;
     private string $description;
+    private string $request_id;
 
     private function __construct(
         int $city_id,
         string $name,
-        string $description
+        string $description,
+        string $request_id,
     ) {
         $this->city_id = $city_id;
         $this->name = $name;
         $this->description = $description;
+        $this->request_id = $request_id;
     }
 
     public static function fromArray(array $data): self
@@ -33,6 +36,7 @@ class StoreCompanyDTO implements Arrayable
             $data['city_id'],
             $data['name'],
             $data['description'],
+            $data['request_id'],
         );
     }
 
@@ -42,6 +46,7 @@ class StoreCompanyDTO implements Arrayable
             'city_id' => $this->getCityId(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
+            'request_id' => $this->getRequestId(),
         ];
     }
 
@@ -67,6 +72,14 @@ class StoreCompanyDTO implements Arrayable
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestId(): string
+    {
+        return $this->request_id;
     }
 
 }
